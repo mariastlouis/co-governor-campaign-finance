@@ -1,0 +1,10 @@
+{
+  "data":
+
+[{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican"},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican"},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican"},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican"},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican"}
+]
+}

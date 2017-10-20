@@ -1,0 +1,8 @@
+{
+  "data":[
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican","ContributionAmount":1,"ContributionDate":"4/4/17 0:00","donor":"Jack Cutter","city":"Littleton","State":"CO","Zip":80120,"RecordID":4556254,"ContributionType":"Monetary","employer":"","Occupation":"","sumDonations":190696.4,"totalDonations":688},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican","ContributionAmount":1,"ContributionDate":"5/12/17 0:00","donor":"Ryan Lynch","city":"Denver","State":"CO","Zip":80202,"RecordID":4556501,"ContributionType":"Monetary","employer":"Self","Occupation":"Consultant","sumDonations":190696.4,"totalDonations":688},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican","ContributionAmount":10,"ContributionDate":"5/31/17 0:00","donor":"Jillian Likness","city":"Colorado Springs","State":"CO","Zip":80903,"RecordID":4556489,"ContributionType":"Monetary","employer":"Self","Occupation":"Consultant","sumDonations":190696.4,"totalDonations":688},
+{"CO_ID":20175032022,"candidate_full":"George Brauchler","party":"Republican","ContributionAmount":10,"ContributionDate":"6/12/17 0:00","donor":"Judd Corbett","city":"Aurora","State":"CO","Zip":80014,"RecordID":4556246,"ContributionType":"Monetary","employer":"","Occupation":"","sumDonations":190696.4,"totalDonations":688}
+]
+}

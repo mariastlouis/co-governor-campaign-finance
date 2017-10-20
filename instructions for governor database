@@ -1,0 +1,31 @@
+Join lookup table with overall CSV file
+
+select governorLookup.committee_id, governorLookup.candidate_full, governorLookup.party, ContributionData.*
+from governorLookup LEFT OUTER JOIN ContributionData
+ON governorLookup.committee_id = ContributionData.CO_ID
+
+
+using view from previous statment add all of the totals up
+select CO_ID, CandidateName, sum(ContributionAmount)
+from join_all_lookup_2
+group by CO_ID, CandidateName
+
+
+using previous two view connect all of the candidates with their totals
+
+select join_all_lookup_2.*, candidate_totals.*
+from join_all_lookup_2 LEFT OUTER JOIN candidate_totals
+ON join_all_lookup_2.CO_ID = candidate_totals.CO_ID
+
+Count the total number of contributions
+
+select join_all_lookup_2.*, candidate_totals.*
+from join_all_lookup_2 LEFT OUTER JOIN candidate_totals
+ON join_all_lookup_2.CO_ID = candidate_totals.CO_ID
+
+
+join the file with the donation sum and all candidates with the candidate totals
+
+select candidate_all_with_totals.*, number_of_donations.*
+from candidate_all_with_totals LEFT OUTER JOIN number_of_donations
+ON candidate_all_with_totals.CO_ID = number_of_donations.CO_ID
