@@ -94,9 +94,6 @@ border-top: none;
 $(document).ready(function() {
     $('#example').DataTable( {
  "ajax": "data/candidate_json.json",
-log: function () {
-  console.log({ data: 'CO_ID' })
-},
 
 	columns: [
             { data: 'CO_ID' },
@@ -142,7 +139,12 @@ log: function () {
                     .appendTo( $('#select-candidate').empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
+                          
+                            $(this).val(),
+                            clearDiv(),
+                            getCandidate($(this).val())
+                            // clearDiv()
+                            
                         );
  
                         column
@@ -152,33 +154,114 @@ log: function () {
  
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
-                    
+                  
                 } );
             } );
         }
+
+        // getCandidate: function(candidate) {
+        //   console.log(candidate)
+        // }
 
         
 } );
 
     
 
-    $("#select-candidate").on('change', selectCandidate);
-    // $("#select-candidate").on('change', clearDiv);
+
+ 
+    
+function clearDiv () {
+$('#candidate-info').html("")
+}
+
+
+
+function setCandidate(candidate) {
+  $('#candidate-info').prepend(candidate);
+
+}
+
+
+
+  function getCandidate(candidate) {
+
+ $('#candidate-info').prepend(candidate);
+  }
+//     if( $('#candidate-info').length ) {
+//       console.log('this has length')
+//       $('#candidate-info').html("")
+//   } 
+//     console.log('no length')
+  
+// }
+   
+  //     if ($('#candidate-info').html().length > 0){
+  // $('#candidate-info').prepend(candidate)  
+  //  } else {
+  //    ($('#candidate-info').html("")) 
+
+  //  }
+   
+   // $('#candidate-info').prepend(candidate)  
+   // console.log($("#candidate-info").html().length )
+   
+
+   // ($('#candidate-info').html("")) 
+ 
+
+
+
+
+//  function clearDiv() {
+// if ($("#candidate-info").text().length <= 1) {
+//      console.log($("#candidate-info").html().length )
+     // $('#candidate-info').empty();
+//    }                                    
+// }
+
+// $('#candidate-info').empty();
+
+    
+  // console.log("this is candidate" + candidate)
+  
+ 
+  // console.log("this is candidate value" + candidateValue)
 
   
+  // clearDiv()
+
+  // if (candidateValue === candidate) {
+  //   console.log('it works')
+  // } else {
+  //   console.log('not working')
+  // }
+
+ 
+
+  // function tryCandidate (candidate) {
+    
+  //   var candidateValue = $(this).find('select').val();
+  //   getCandidate('Ed Perlmutter', candidateValue)
+  //   // console.log(($(this).find('select').val()));
+
+  // }
   
   function selectCandidate() {
     var candidateValue = $(this).find('select').val();
-    console.log(d)
+   
+    console.log(candidateValue)
     
 
     clearDiv();
 
-    if (candidateValue ==="Ed Perlmutter") {
-       $('#candidate-info').prepend('Perlmutter')
+    if (candidateValue === 'Ed Perlmutter') {
+       $('#candidate-info').prepend('Perlmutter');
 
       // $('#candidate-info').prepend('Perlmutter')
-    } else if 
+    }
+
+     else if 
       (candidateValue ==="George Brauchler") {
        $('#candidate-info').prepend('Brauchler')
     }else if 
@@ -190,15 +273,21 @@ log: function () {
     } else {
       console.log('candidate doesnt appear' )
     }
-      // clearDiv()
+  //     // clearDiv()
   }
 
-  function clearDiv () {
-    ($('#candidate-info').html("")) 
-  }
+  // function clearDiv () {
+  //   if (($('#candidate-info').html())) {
+  //     console.log('this has info in it')
+  //   } else {
+  //     console.log('this has no info in it')
+  //   }
+  //   // ($('#candidate-info').html("")) 
+  // }
 
 
-} );
+} ); 
+// end of document ready
 
 
 </script>
@@ -225,7 +314,7 @@ log: function () {
  ]
 
  candidateTotal.forEach(function(candidate){
-  console.log(candidate)
+  console.log(candidate.name + ' has raised $' + candidate.total)
 
  })
 
