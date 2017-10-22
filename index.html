@@ -47,9 +47,10 @@ border-top: none;
 <body>
 
 
-<div id ="select-candidate"> </div>
 
-<div id = "candidate-info"> </div>
+
+<div id = "candidate-info"><p> Default candidate info goes here </p> </div>
+<div id ="select-candidate"> </div>
 
 
 <table id="example" class="display" cellspacing="0" width="100%">
@@ -71,8 +72,8 @@ border-top: none;
               <th>Contribution type</th>
               <th> employer </th>
               <th>occuption</th>
-                <th>Total raised</th>
-                <th>number of doncations</th>
+                <th class="total-donations">Total raised</th>
+                <th class= "donation-number">number of donations</th>
             </tr>
         </thead>
 
@@ -142,7 +143,8 @@ $(document).ready(function() {
                           
                             $(this).val(),
                             clearDiv(),
-                            getCandidate($(this).val())
+                            setCandidate($(this).val()),
+
                             // clearDiv()
                             
                         );
@@ -166,10 +168,18 @@ $(document).ready(function() {
         
 } );
 
+
+
+// function getRows () {
+//   var table = $('#example').DataTable();
+//   table.column( 'sumDonations:data' ).data();
+//   console.log('getting data')
+// }
+
+
+
     
 
-
- 
     
 function clearDiv () {
 $('#candidate-info').html("")
@@ -177,75 +187,64 @@ $('#candidate-info').html("")
 
 
 
+   var candidateTotal = [
+ {
+  name: 'George Brauchler',
+  total: 190696.4
+ },
+{
+  name: 'Michael Johnston',
+  total: 943366.15
+ },
+ {
+  name: 'Cary Kennedy',
+  total: 342695.28
+ }
+
+ ]
+
 function setCandidate(candidate) {
-  $('#candidate-info').prepend(candidate);
 
-}
+var candidateInfo = candidateTotal.filter(function(person){
+  return person.name === candidate;
+})
+ $('#candidate-info').prepend(candidateInfo[0].name + 'has raised' + candidateInfo[0].total);
+
+// console.log(candidateInfo[0].name)
+// $('#candidate-info').prepend(candidateInfo);
+  } 
 
 
+// candidateTotal.forEach(function(person){
+//   if (candidate === person.name){
+//     console.log('you found the person')
+    // $('#candidate-info').prepend(person.name);
 
-  function getCandidate(candidate) {
 
- $('#candidate-info').prepend(candidate);
-  }
-//     if( $('#candidate-info').length ) {
-//       console.log('this has length')
-//       $('#candidate-info').html("")
-//   } 
-//     console.log('no length')
+ //  function getCandidate(candidate) {
   
-// }
-   
-  //     if ($('#candidate-info').html().length > 0){
-  // $('#candidate-info').prepend(candidate)  
-  //  } else {
-  //    ($('#candidate-info').html("")) 
 
-  //  }
-   
-   // $('#candidate-info').prepend(candidate)  
-   // console.log($("#candidate-info").html().length )
-   
 
-   // ($('#candidate-info').html("")) 
+ // 
+ // console.log(candidateTotal.name)
  
+ //  }
 
 
 
 
-//  function clearDiv() {
-// if ($("#candidate-info").text().length <= 1) {
-//      console.log($("#candidate-info").html().length )
-     // $('#candidate-info').empty();
-//    }                                    
-// }
 
-// $('#candidate-info').empty();
+ console.log(candidateTotal[0].name)
 
-    
-  // console.log("this is candidate" + candidate)
-  
- 
-  // console.log("this is candidate value" + candidateValue)
+ candidateTotal.forEach(function(person){
 
-  
-  // clearDiv()
+ })
 
-  // if (candidateValue === candidate) {
-  //   console.log('it works')
-  // } else {
-  //   console.log('not working')
-  // }
+ // candidateTotal.forEach(function(candidate){
+ //  console.log(candidate.name + ' has raised $' + candidate.total)
 
- 
+ // })
 
-  // function tryCandidate (candidate) {
-    
-  //   var candidateValue = $(this).find('select').val();
-  //   getCandidate('Ed Perlmutter', candidateValue)
-  //   // console.log(($(this).find('select').val()));
-
-  // }
   
   function selectCandidate() {
     var candidateValue = $(this).find('select').val();
@@ -297,26 +296,6 @@ function setCandidate(candidate) {
 
 
 
- var candidateTotal = [
- {
-  name: 'George Brauchler',
-  total: 190696.4
- },
-{
-  name: 'Michael Johnston',
-  total: 943366.15
- },
- {
-  name: 'Cary Kennedy',
-  total: 342695.28
- }
-
- ]
-
- candidateTotal.forEach(function(candidate){
-  console.log(candidate.name + ' has raised $' + candidate.total)
-
- })
 
 
 
