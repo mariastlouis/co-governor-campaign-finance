@@ -160,25 +160,12 @@ $(document).ready(function() {
                 } );
             } );
         }
-
-        // getCandidate: function(candidate) {
-        //   console.log(candidate)
-        // }
-
         
 } );
 
 
 
-// function getRows () {
-//   var table = $('#example').DataTable();
-//   table.column( 'sumDonations:data' ).data();
-//   console.log('getting data')
-// }
 
-
-
-    
 
     
 function clearDiv () {
@@ -190,7 +177,8 @@ $('#candidate-info').html("")
    var candidateTotal = [
  {
   name: 'George Brauchler',
-  total: 190696.4
+  total: 190696.4,
+  photoUrl: 'http://www3.gazette.com/maria/governor_campaign_finance_2017/images/george_brauchler.jpg'
  },
 {
   name: 'Michael Johnston',
@@ -208,11 +196,38 @@ function setCandidate(candidate) {
 var candidateInfo = candidateTotal.filter(function(person){
   return person.name === candidate;
 })
- $('#candidate-info').prepend(candidateInfo[0].name + 'has raised' + candidateInfo[0].total);
-
-// console.log(candidateInfo[0].name)
-// $('#candidate-info').prepend(candidateInfo);
+prependCandidate(candidateInfo[0].name, candidateInfo[0].total.toLocaleString(), candidateInfo[0].photoUrl  )
   } 
+
+function prependCandidate (name, total, photo) {
+  $('#candidate-info').prepend(
+    `<article> 
+    <img src = "${photo}" alt = "${name}">
+
+    <h2> ${name} </h2>
+    <p> Has raised: <strong> $${total}</strong>
+
+    </article>`)
+}
+
+function prependIdea (idea) {
+$('.bookmark-list').prepend(
+    `<article id=${idea.id} class="idea-article">
+    <h2 class="idea-title" contenteditable=true >${idea.title}</h2> 
+    <div class="delete-button-div icon-buttons delete-button right">
+    </div>
+    <p contenteditable="true" class="idea-paragraph">${idea.body}</p>
+    <div class="quality-rank"> 
+    <div class="upvote-button-div icon-buttons upvote-button">
+    </div>
+    <div class="downvote-button-div icon-buttons downvote-button"> 
+    </div>
+    <p> quality: <span class = "quality-content">${idea.status}</span> </p> </div>
+    <hr /> 
+    </article>`)
+  $('.main-title').val("");
+  $('.idea-input').val("");
+}
 
 
 // candidateTotal.forEach(function(person){
