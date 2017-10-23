@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/u/dt/jq-2.2.3,dt-1.10.12,r-2.1.0/datatables.min.css"/>
 
@@ -36,9 +38,62 @@ border-top: none;
   text-align: center;
 }
 
-#candidate-info {
-  background: green;
+.round-large {
+  border-radius: 50%;
+  width: 100px;
 }
+
+.main-hed {
+  background: #253674;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo-image {
+  padding: 10px;
+  width: 100px;
+}
+
+.vertical-line {
+  height: 80px;
+  border-left: 2px solid #fff;
+  margin-top: 20px;
+
+}
+
+.header-left{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+
+.header-right {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+
+}
+
+body {
+  margin: 0;
+}
+
+
+h1 {
+font-family: 'Roboto', sans-serif;
+color: #fff;
+font-weight: 400;
+font-size: 30px;
+
+}
+
+.header-text {
+  padding-left: 20px;
+  width: 70%;
+}
+
 
 </style>
 
@@ -49,9 +104,40 @@ border-top: none;
 
 
 
-<div id = "candidate-info"><p> Default candidate info goes here </p> </div>
-<div id ="select-candidate"> </div>
+  
+    <section class = "top-info">
+      <article class = "main-hed">
+        <div class = "header-left">
+          <div class = "logo"> 
+            <img src = "images/copo_logo.png" alt = "colorado politics logo" class = "logo-image">
+          </div>
+            
+          <div class = "vertical-line"> </div>
+          <div class = "header-text"><h1> Colorado governor's race campaign finance database</h1>
 
+        </div>
+      </div>
+
+        <div class = "header-right">
+          <div id ="select-candidate"> </div>
+        </div>
+
+
+      </article>
+
+      <article id = "candidate-info">
+
+    <img src = "http://www3.gazette.com/maria/governor_campaign_finance_2017/images/george_brauchler.jpg" alt = "George Brauchler" class ="round-large">
+
+    <h2> George Brauchler </h2>
+    <p> Has raised: <strong> $${total}</strong> </p>
+
+    
+
+    </article>
+
+</section>
+<section class = "main-database">
 
 <table id="example" class="display" cellspacing="0" width="100%">
 <caption></caption>
@@ -79,6 +165,8 @@ border-top: none;
 
            
     </table>
+
+  </section>
 
 
 <script
@@ -136,7 +224,7 @@ $(document).ready(function() {
         initComplete: function () {
             this.api().columns('.select-filter').every( function () {
                 var column = this;
-                var select = $('<select><option value="">Select a candidate</option></select>')
+                var select = $('<select class="main-select"><option value="all">Select a candidate</option></select>')
                     .appendTo( $('#select-candidate').empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
@@ -210,24 +298,6 @@ function prependCandidate (name, total, photo) {
     </article>`)
 }
 
-function prependIdea (idea) {
-$('.bookmark-list').prepend(
-    `<article id=${idea.id} class="idea-article">
-    <h2 class="idea-title" contenteditable=true >${idea.title}</h2> 
-    <div class="delete-button-div icon-buttons delete-button right">
-    </div>
-    <p contenteditable="true" class="idea-paragraph">${idea.body}</p>
-    <div class="quality-rank"> 
-    <div class="upvote-button-div icon-buttons upvote-button">
-    </div>
-    <div class="downvote-button-div icon-buttons downvote-button"> 
-    </div>
-    <p> quality: <span class = "quality-content">${idea.status}</span> </p> </div>
-    <hr /> 
-    </article>`)
-  $('.main-title').val("");
-  $('.idea-input').val("");
-}
 
 
 // candidateTotal.forEach(function(person){
