@@ -1,0 +1,64 @@
+tfoot {
+    display: table-caption;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  th.sorting {
+    font-family: 'Open Sans', sans-serif;
+}
+label {
+   font-family: 'Open Sans', sans-serif;
+}
+table.dataTable tfoot th, table.dataTable tfoot td {
+padding: 10px 18px 6px 18px;
+border-top: none;
+  }
+#select-candidate {
+  text-align: center;
+}
+.round-large {
+  border-radius: 50%;
+  width: 100px;
+}
+.main-hed {
+  background: #253674;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo-image {
+  padding: 10px;
+  width: 100px;
+}
+.vertical-line {
+  height: 80px;
+  border-left: 2px solid #fff;
+  margin-top: 20px;
+}
+.header-left{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+.header-right {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+body {
+  margin: 0;
+}
+h1 {
+font-family: 'Roboto', sans-serif;
+color: #fff;
+font-weight: 400;
+font-size: 30px;
+}
+.header-text {
+  padding-left: 20px;
+  width: 70%;
+}
