@@ -131,7 +131,7 @@ border-top: none;
   font-style: italic;
 }
 
-.database-hed {
+#database-hed {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,4 +161,70 @@ select.main-select {
     padding: 20px;
     font-size: 16px;
     color: #6f6868;
+}
+
+.money-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .total-donations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+@media screen and (max-width: 665px) {
+  .main-hed {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .header-left {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .vertical-line {
+      display: none;
+    }
+
+    .logo {
+    text-align: center;
+  }
+
+    .header-text {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+  .header-right {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 490px) {
+  #candidate-info article {
+    flex-direction: column;
+  }
+
+  .candidate-left {
+    justify-content: center;
+  }
+
+
+.money-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .total-donations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

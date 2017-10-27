@@ -1,0 +1,18 @@
+{
+  "data": [{
+      "CO_ID": 20175032022,
+      "candidate_full": "George Brauchler",
+      "party": "Republican",
+      "ContributionAmount": -1000,
+      "donor": "Esther Lee",
+      "City": "Parker",
+      "State": "CO",
+      "Zip": 80134,
+      "ContributionDate": "6/30/17",
+      "RecordID": 4556813,
+      "ContributionType": "Returned Contributions",
+      "donorEmployer": "Retired",
+      "donorOccupation": "Retired"
+    }
+  ]
+}
