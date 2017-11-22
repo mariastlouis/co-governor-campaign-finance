@@ -1,0 +1,269 @@
+body {
+  margin: 0;font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2, 
+h3, 
+p {
+ -webkit-margin-before: 5px;
+  -webkit-margin-after: 5px; 
+}
+
+h1 {
+font-family: 'Roboto', sans-serif;
+color: #fff;
+font-weight: 400;
+font-size: 30px;
+}
+
+
+h2 {
+font-family: 'Roboto', sans-serif;
+font-weight: 400;
+font-size: 25px;
+   /* -webkit-margin-before: 5px;
+    -webkit-margin-after: 5px;*/
+}
+
+h3 {
+font-weight: 400;
+font-size: 20px;
+/* -webkit-margin-before: 5px;
+-webkit-margin-after: 5px;*/
+}
+p {
+    -webkit-margin-before: 5px;
+    -webkit-margin-after: 5px;
+  }
+
+
+tfoot {
+    display: table-caption;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  th.sorting {
+    font-family: 'Open Sans', sans-serif;
+}
+label {
+   font-family: 'Open Sans', sans-serif;
+}
+table.dataTable tfoot th, table.dataTable tfoot td {
+padding: 10px 18px 6px 18px;
+border-top: none;
+  }
+#select-candidate {
+  text-align: center;
+}
+.round-large {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.round-small {
+  border-radius: 50%;
+  width: 70px;
+}
+.main-hed {
+  background: #253674;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo-image {
+  padding: 10px;
+  width: 100px;
+}
+.vertical-line {
+  height: 80px;
+  border-left: 2px solid #fff;
+  margin-top: 20px;
+}
+.header-left{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+.header-right {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+
+.header-text {
+  padding-left: 20px;
+  width: 70%;
+  margin-top: 15px;
+}
+
+#candidate-info article  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#top-rank {
+  margin-bottom: 20px;
+}
+
+#top-three-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.candidate-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-three-hed {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-database {
+  padding: 20px;
+}
+
+.party {
+  font-style: italic;
+  font-size: 18px;
+}
+
+.candidate-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.dataTables_filter input {
+  -webkit-appearance:none;
+  height: 30px;
+}
+
+
+
+.candidate-name {
+  margin: 15px 0 0 10px;
+  }
+
+.candidate-money {
+  font-style: italic;
+}
+
+#database-hed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+  table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+   
+    background-color: #253674;
+}
+
+.accent-color {
+    font-size: 30px;
+    color: #6f6868;
+}
+
+.explainer {
+  font-size: 12px;
+}
+
+select {
+    height: 35px;
+}
+
+select.main-select {
+    height: 40px;
+    padding: 20px;
+    font-size: 16px;
+    color: #6f6868;
+}
+
+.money-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .total-donations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+@media screen and (max-width: 665px) {
+  .main-hed {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .header-left {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .vertical-line {
+      display: none;
+    }
+
+    .logo {
+    text-align: center;
+  }
+
+    .header-text {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+}
+  .header-right {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+ @media screen and (max-width: 590px) {
+  #top-three-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}
+
+
+
+  @media screen and (max-width: 490px) {
+  #candidate-info article {
+    flex-direction: column;
+  }
+
+  .candidate-left {
+    justify-content: center;
+  }
+
+
+.money-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .total-donations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,391 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Colorado Governor campaign finance</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/u/dt/jq-2.2.3,dt-1.10.12,r-2.1.0/datatables.min.css"/>
-
-<style>
-tfoot {
-    display: table-caption;
-}
-
-table.dataTable tbody th, table.dataTable tbody td {
-    padding: 8px 10px;
-    font-family: 'Open Sans', sans-serif;
-	}
-	
-	th.sorting {
-    font-family: 'Open Sans', sans-serif;
-}
-
-label {
-	 font-family: 'Open Sans', sans-serif;
-}
-
-table.dataTable tfoot th, table.dataTable tfoot td {
-padding: 10px 18px 6px 18px;
-border-top: none;
-	}
-
-#select-candidate {
-  text-align: center;
-}
-
-.round-large {
-  border-radius: 50%;
-  width: 100px;
-}
-
-.main-hed {
-  background: #253674;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.logo-image {
-  padding: 10px;
-  width: 100px;
-}
-
-.vertical-line {
-  height: 80px;
-  border-left: 2px solid #fff;
-  margin-top: 20px;
-
-}
-
-.header-left{
-  display: flex;
-  flex-direction: row;
-  width: 70%;
-}
-
-.header-right {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 30%;
-
-}
-
-body {
-  margin: 0;
-}
-
-
-h1 {
-font-family: 'Roboto', sans-serif;
-color: #fff;
-font-weight: 400;
-font-size: 30px;
-
-}
-
-.header-text {
-  padding-left: 20px;
-  width: 70%;
-}
-
-
-</style>
-
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>Colorado Governor campaign finance</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://cdn.datatables.net/u/dt/jq-2.2.3,dt-1.10.12,r-2.1.0/datatables.min.css" rel="stylesheet" type="text/css">
+  <link href="lib/styles.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-
-
-
-
-  
-    <section class = "top-info">
-      <article class = "main-hed">
-        <div class = "header-left">
-          <div class = "logo"> 
-            <img src = "images/copo_logo.png" alt = "colorado politics logo" class = "logo-image">
-          </div>
-            
-          <div class = "vertical-line"> </div>
-          <div class = "header-text"><h1> Colorado governor's race campaign finance database</h1>
-
+  <section class="top-info">
+    <article class="main-hed">
+      <div class="header-left">
+        <div class="logo"><img alt="colorado politics logo" class="logo-image" src="lib/images/copo_logo.png"></div>
+        <div class="vertical-line"></div>
+        <div class="header-text">
+          <h1>Colorado governor's race campaign finance database</h1>
         </div>
       </div>
-
-        <div class = "header-right">
-          <div id ="select-candidate"> </div>
-        </div>
-
-
-      </article>
-
-      <article id = "candidate-info">
-
-    <img src = "http://www3.gazette.com/maria/governor_campaign_finance_2017/images/george_brauchler.jpg" alt = "George Brauchler" class ="round-large">
-
-    <h2> George Brauchler </h2>
-    <p> Has raised: <strong> $${total}</strong> </p>
-
-    
-
+      <div class="header-right">
+        <div id="select-candidate"></div>
+      </div>
     </article>
-
-</section>
-<section class = "main-database">
-
-<table id="example" class="display" cellspacing="0" width="100%">
-<caption></caption>
-        <thead>
-            <tr>
-          
-               <th>co_id</th>
-               <th class= "select-filter">candidate</th>
-               <th> party </th>
-
-               <th>contribution Amount </th>
-              <th>date</th>
-              <th>donor</th>
-              <th>city</th>
-              <th>state</th>
-              <th>zip</th>
-              <th> record </th>
-              <th>Contribution type</th>
-              <th> employer </th>
-              <th>occuption</th>
-                <th class="total-donations">Total raised</th>
-                <th class= "donation-number">number of donations</th>
-            </tr>
-        </thead>
-
-           
-    </table>
-
   </section>
-
-
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
- 
-<script type="text/javascript" src="https://cdn.datatables.net/u/dt/jq-2.2.3,dt-1.10.12,r-2.1.0/datatables.min.js"></script>
-
-
-
-
-<script>
-$(document).ready(function() {
-    $('#example').DataTable( {
- "ajax": "data/candidate_json.json",
-
-	columns: [
-            { data: 'CO_ID' },
-            { data: 'candidate_full' },
-            { data: 'party' },
-            { data: 'ContributionAmount',
-            render: $.fn.dataTable.render.number( ',', '.', 2, '$' )
-             },
-            { data: 'ContributionDate' },
-            { data: 'donor' },
-            { data: 'city' },
-            { data: 'State' },
-            { data: 'Zip' },
-            { data: 'RecordID' },
-            { data: 'ContributionType' },
-            { data: 'employer' },
-            { data: 'Occupation' },
-            { data: 'sumDonations', 
-             render: $.fn.dataTable.render.number( ',', '.', 2, '$' )
-            },
-            { data: 'totalDonations', 
-             render: $.fn.dataTable.render.number( ',', '.', 2, )
-            }
-          
-
-        ],
-    "responsive": true,
-    "iDisplayLength": 50,
-    "deferRender": true,
-
-	 "columnDefs": [
-            {
-                "targets": [0],
-                "visible": false,
-                "searchable": false
-            }
-        ],
-
-        initComplete: function () {
-            this.api().columns('.select-filter').every( function () {
-                var column = this;
-                var select = $('<select class="main-select"><option value="all">Select a candidate</option></select>')
-                    .appendTo( $('#select-candidate').empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                          
-                            $(this).val(),
-                            clearDiv(),
-                            setCandidate($(this).val()),
-
-                            // clearDiv()
-                            
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                  
-                } );
-            } );
-        }
-        
-} );
-
-
-
-
-
-    
-function clearDiv () {
-$('#candidate-info').html("")
-}
-
-
-
-   var candidateTotal = [
- {
-  name: 'George Brauchler',
-  total: 190696.4,
-  photoUrl: 'http://www3.gazette.com/maria/governor_campaign_finance_2017/images/george_brauchler.jpg'
- },
-{
-  name: 'Michael Johnston',
-  total: 943366.15
- },
- {
-  name: 'Cary Kennedy',
-  total: 342695.28
- }
-
- ]
-
-function setCandidate(candidate) {
-
-var candidateInfo = candidateTotal.filter(function(person){
-  return person.name === candidate;
-})
-prependCandidate(candidateInfo[0].name, candidateInfo[0].total.toLocaleString(), candidateInfo[0].photoUrl  )
-  } 
-
-function prependCandidate (name, total, photo) {
-  $('#candidate-info').prepend(
-    `<article> 
-    <img src = "${photo}" alt = "${name}">
-
-    <h2> ${name} </h2>
-    <p> Has raised: <strong> $${total}</strong>
-
-    </article>`)
-}
-
-
-
-// candidateTotal.forEach(function(person){
-//   if (candidate === person.name){
-//     console.log('you found the person')
-    // $('#candidate-info').prepend(person.name);
-
-
- //  function getCandidate(candidate) {
-  
-
-
- // 
- // console.log(candidateTotal.name)
- 
- //  }
-
-
-
-
-
- console.log(candidateTotal[0].name)
-
- candidateTotal.forEach(function(person){
-
- })
-
- // candidateTotal.forEach(function(candidate){
- //  console.log(candidate.name + ' has raised $' + candidate.total)
-
- // })
-
-  
-  function selectCandidate() {
-    var candidateValue = $(this).find('select').val();
-   
-    console.log(candidateValue)
-    
-
-    clearDiv();
-
-    if (candidateValue === 'Ed Perlmutter') {
-       $('#candidate-info').prepend('Perlmutter');
-
-      // $('#candidate-info').prepend('Perlmutter')
-    }
-
-     else if 
-      (candidateValue ==="George Brauchler") {
-       $('#candidate-info').prepend('Brauchler')
-    }else if 
-      (candidateValue ==="Jared Polis") {
-       $('#candidate-info').prepend('Polis')
-    } else if 
-      (candidateValue ==="Michael Johnston") {
-       $('#candidate-info').prepend('Johnston')
-    } else {
-      console.log('candidate doesnt appear' )
-    }
-  //     // clearDiv()
-  }
-
-  // function clearDiv () {
-  //   if (($('#candidate-info').html())) {
-  //     console.log('this has info in it')
-  //   } else {
-  //     console.log('this has no info in it')
-  //   }
-  //   // ($('#candidate-info').html("")) 
-  // }
-
-
-} ); 
-// end of document ready
-
-
-</script>
-
-
-<script>
-
-
-
-
-
-
-</script>
-
-
+  <section class="main-database">
+    <div id="candidate-info"></div><!-- </div> -->
+    <div id="top-rank"></div>
+    <div id="database-hed"></div>
+    <table cellspacing="0" class="display" id="example" width="100%">
+      <caption></caption>
+      <thead>
+        <tr>
+          <th>co_id</th>
+          <th class="select-filter">Candidate</th>
+          <th>Party</th>
+          <th>Donation</th>
+          <th>Donor</th>
+          <th>Donor city</th>
+          <th>Donor State</th>
+          <th>Donor Zip</th>
+          <th>Donation date</th>
+          <th>record</th>
+          <th>Contribution type</th>
+          <th>Donor employer</th>
+          <th>Donor occuption</th>
+        </tr>
+      </thead>
+    </table>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js">
+  </script> 
+  <script src="https://cdn.datatables.net/u/dt/jq-2.2.3,dt-1.10.12,r-2.1.0/datatables.min.js" type="text/javascript">
+  </script> 
+  <script src="scripts/index.js" type="text/javascript">
+  </script>
 </body>
 </html>
