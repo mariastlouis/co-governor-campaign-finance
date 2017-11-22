@@ -63,6 +63,11 @@ border-top: none;
   border-radius: 50%;
   width: 100px;
 }
+
+.round-small {
+  border-radius: 50%;
+  width: 70px;
+}
 .main-hed {
   background: #253674;
   display: flex;
@@ -94,12 +99,34 @@ border-top: none;
 .header-text {
   padding-left: 20px;
   width: 70%;
+  margin-top: 15px;
 }
 
 #candidate-info article  {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+#top-rank {
+  margin-bottom: 20px;
+}
+
+#top-three-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.candidate-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-three-hed {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .main-database {
@@ -199,11 +226,23 @@ select.main-select {
     padding: 10px;
     width: 100%;
     text-align: center;
+    margin-top: 0;
 }
   .header-right {
     width: 100%;
     margin-bottom: 10px;
   }
+
+ @media screen and (max-width: 590px) {
+  #top-three-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}
+
+
 
   @media screen and (max-width: 490px) {
   #candidate-info article {
