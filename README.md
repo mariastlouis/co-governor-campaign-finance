@@ -1,11 +1,12 @@
 # Colorado Governor Campaign Finance Database
 
-This site is an interactive and responsive database that allows users to see contributions made to candidates in the 2018 Colorado governor's race. 
+This site is an interactive and responsive database that allows users to see contributions made to candidates in the 2018 Colorado governor's race. The data was taken from the Colorado Secretary of State and includes monetary and non-monetary contributions to the candidates. 
 
 Technologies used: 
 * JavaScript  
 * Data analysis and cleaning
-![alt text](https://github.com/mariastlouis/weathrly/blob/master/lib/weatherly_demo.gif)
+
+![alt text](https://github.com/mariastlouis/co-governor-campaign-finance/blob/master/lib/images/governor_database_demo.gif)
 
 
 
